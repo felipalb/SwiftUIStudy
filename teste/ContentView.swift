@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var nome: String = ""
+    @State private var nameSub: String = ""
     var body: some View {
         VStack{
             TextField("Coloque seu nome:", text: $nome)
@@ -17,7 +18,7 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button(action: {
-                print("Submitted name: \(nome)")
+                nameSub = nome
             }){
                 Text("Submit Name")
                     .padding()
@@ -26,10 +27,19 @@ struct ContentView: View {
                     .cornerRadius(10)
             }
             
-            Text("Hello, \(nome)")
-                .padding()
+            .padding()
+            
+            if !nameSub.isEmpty{
+                Text("Bem vindo, \(nameSub) !")
+                    .font(.title)
+                    .padding()
+                    .transition(.opacity)
+            }
+            
         }
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
