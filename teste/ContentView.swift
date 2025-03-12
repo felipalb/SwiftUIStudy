@@ -19,7 +19,7 @@ struct ContentView: View {
             Button(action: {
                 print("Submitted name: \(nome)")
             }){
-                Text("Submit")
+                Text("Submit Name")
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(Color.white)
