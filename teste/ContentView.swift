@@ -7,39 +7,41 @@
 
 import SwiftUI
 
+var nameSub : String = ""
 struct ContentView: View {
-    
     @State private var nome: String = ""
-    @State private var nameSub: String = ""
+    @State private var auth = false
+    // declaracao de var
     var body: some View {
-        VStack{
-            TextField("Coloque seu nome:", text: $nome)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button(action: {
-                nameSub = nome
-            }){
-                Text("Submit Name")
+        NavigationView{
+            VStack{
+                TextField("Coloque seu nome:", text: $nome)
+                // campo de texto, recebendo texto e jogando o valor na var nome
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    Button(action: {
+                        nameSub = nome
+                        auth = true
+                        // jogo variavel com nome dentro de uma outra variavel
+                    }){
+                    
+                        Text("Submit Name")
+                        // coloco o texto do botao
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(10)
+                }
+                
+                NavigationLink(destination: dtl(), isActive: $auth){
+                    EmptyView()
+                }
+    
+
             }
-            
-            .padding()
-            
-            if !nameSub.isEmpty{
-                Text("Bem vindo, \(nameSub) !")
-                    .font(.title)
-                    .padding()
-                    .transition(.opacity)
-            }
-            
         }
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
