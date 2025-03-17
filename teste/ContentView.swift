@@ -15,6 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
+                
                 TextField("Coloque seu nome:", text: $nome)
                 // campo de texto, recebendo texto e jogando o valor na var nome
                     .padding()

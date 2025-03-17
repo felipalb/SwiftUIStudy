@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct dtl: View {
+    @State private var auth2 = false
     var body: some View {
         VStack{
             if !nameSub.isEmpty{
@@ -16,6 +17,25 @@ struct dtl: View {
                     .padding()
                     .transition(.opacity)
             }
+            
+            Text("Espero que esteja pronto...")
+                .font(.title3)
+                .fontWeight(.heavy)
+                .foregroundColor(.red)
+                .padding(.top, 2)
+            Spacer()
+            Button(action:{
+                auth2 = true
+            }){
+                Text("Pronto? ...")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+                    .padding()
+            }
+            
+            Spacer()
         }
     }
 }
