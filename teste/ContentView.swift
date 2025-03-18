@@ -23,7 +23,11 @@ struct ContentView: View {
 
                     Button(action: {
                         nameSub = nome
-                        auth = true
+                        if !nameSub.isEmpty{
+                            auth = true
+                        }else{
+                            auth = false
+                        }
                         // jogo variavel com nome dentro de uma outra variavel
                     }){
                     

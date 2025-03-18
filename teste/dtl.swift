@@ -10,26 +10,34 @@ struct dtl: View {
     @State private var auth2 = false
     var body: some View {
         VStack{
-            if !nameSub.isEmpty{
-                // se variavel que recebeu nome nao for vazia, printa na tela
-                Text("Bem vindo, \(nameSub) !")
+                Text("Bem vindo, \(nameSub)!")
                     .font(.title)
                     .padding()
                     .transition(.opacity)
-            }
             
             Text("Espero que esteja pronto...")
                 .font(.title3)
                 .fontWeight(.heavy)
-                .foregroundColor(.red)
+                .foregroundColor(.blue)
                 .padding(.top, 2)
             Spacer()
             Button(action:{
                 auth2 = true
             }){
-                Text("Pronto? ...")
+                Text("Pronto para? ...")
                     .padding()
                     .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+                    .padding()
+            }
+            
+            Button(action:{
+                auth2 = true
+            }){
+                Text("Estou sempre pronto")
+                    .padding()
+                    .background(Color.green)
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
                     .padding()
