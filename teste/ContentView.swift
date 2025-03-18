@@ -8,9 +8,11 @@
 import SwiftUI
 
 var nameSub : String = ""
+
 struct ContentView: View {
+    
     @State private var nome: String = ""
-    @State private var auth = false
+    @State var auth : Bool = false
     // declaracao de var
     var body: some View {
         NavigationView{
@@ -23,11 +25,7 @@ struct ContentView: View {
 
                     Button(action: {
                         nameSub = nome
-                        if !nameSub.isEmpty{
-                            auth = true
-                        }else{
-                            auth = false
-                        }
+                        authin()
                         // jogo variavel com nome dentro de uma outra variavel
                     }){
                     
@@ -46,6 +44,16 @@ struct ContentView: View {
 
             }
         }
+    }
+    
+    func authin(){
+
+        if !nameSub.isEmpty{
+            auth = true
+        }else{
+            auth = false
+        }
+        
     }
 }
 
