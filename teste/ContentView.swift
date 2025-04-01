@@ -7,7 +7,43 @@
 
 import SwiftUI
 
-var nameSub : String = ""
+struct ContentCard: View {
+    var body: some View {
+        ZStack{
+            VStack{
+                Text("Dicas de Segurança")
+                    .font(.system(size:24, weight: .semibold))
+                    .foregroundColor(.black)
+                    .padding(.leading,10)
+            }
+        }
+        
+        .padding()
+        .frame(width: 340, height: 85)
+        .background(Color.gray.opacity(0.2))
+        .clipShape(RoundedRectangle(cornerRadius : 17))
+        .padding(.horizontal)
+    }
+}
+
+struct TopmenuBar: View {
+    var body: some View{
+        HStack{
+            Text("Inicio")
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .padding(.leading, 10)
+            Spacer()
+
+        }
+        .padding()
+        .background(Color.gray.opacity(0.5))
+        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .padding(.horizontal)
+    }
+}
+
 
 struct ContentView: View {
     
@@ -15,46 +51,14 @@ struct ContentView: View {
     @State var auth : Bool = false
     // declaracao de var
     var body: some View {
-        NavigationView{
-            VStack{
-                
-                TextField("Coloque seu nome:", text: $nome)
-                // campo de texto, recebendo texto e jogando o valor na var nome
-                    .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-
-                    Button(action: {
-                        nameSub = nome
-                        authin()
-                        // jogo variavel com nome dentro de uma outra variavel
-                    }){
-                    
-                        Text("Submit Name")
-                        // coloco o texto do botao
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(Color.white)
-                            .cornerRadius(10)
-                }
-                
-                NavigationLink(destination: dtl(), isActive: $auth){
-                    EmptyView()
-                }
-    
-
-            }
+        VStack{
+            TopmenuBar()
+                .padding(.bottom, 10)
+            ContentCard()
+            Spacer()
         }
     }
     
-    func authin(){
-
-        if !nameSub.isEmpty{
-            auth = true
-        }else{
-            auth = false
-        }
-        
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
