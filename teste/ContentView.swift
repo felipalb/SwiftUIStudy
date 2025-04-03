@@ -46,7 +46,7 @@ struct ContentCard: View {
             VStack{
                 
                 Text("Dicas de Segurança")
-                    .font(.system(size:24, weight: .semibold))
+                    .font(.system(size:24, weight: .light))
                     .foregroundColor(.black)
                     .padding(.leading,10)
             }
@@ -65,7 +65,7 @@ struct ContentCard2: View{
         ZStack{
             VStack{
                 Text("Acessibilidade")
-                    .font(.system(size:24, weight: .semibold))
+                    .font(.system(size:24, weight: .light))
                     .foregroundColor(.black)
                     .padding(.leading, 10)
             }
@@ -86,7 +86,7 @@ struct ContentLayout: View {
             HStack{
                 
                 Text("Scan")
-                    .font(.system(size:20, weight: .semibold))
+                    .font(.system(size:20, weight: .light))
                     .foregroundColor(.black)
                     .padding()
             }
@@ -102,7 +102,7 @@ struct ContentLayout: View {
             HStack{
                 
                 Text("Checagem")
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.system(size: 20, weight: .light))
                     .foregroundColor(.black)
                     .padding()
             }
@@ -130,6 +130,7 @@ struct TopmenuBar: View {
             Spacer()
 
         }
+        .aspectRatio(3.0, contentMode: .fit)
         .padding()
         .background(Color.gray.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -150,11 +151,11 @@ struct ContentView: View {
             Titles()
                 .padding(.bottom, 10)
             ContentCard()
-                .padding(.bottom,10)
+                .padding(.bottom,20)
             Titles2()
                 .padding(.bottom,10)
             ContentLayout()
-                .padding(.bottom,10)
+                .padding(.bottom,20)
             Titles3()
                 .padding(.bottom,10)
             ContentCard2()
