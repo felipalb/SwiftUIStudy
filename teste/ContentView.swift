@@ -81,7 +81,7 @@ struct ContentCard2: View{
 
 struct ContentLayout: View {
     var body: some View {
-    HStack(spacing: 10){
+    HStack(spacing: 5){
         ZStack{
             HStack{
                 
@@ -93,7 +93,7 @@ struct ContentLayout: View {
         }
         
         .padding()
-        .frame(width: 170, height: 50)
+        .frame(width: 150, height: 50)
         .background(Color.gray.opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius : 17))
         .padding(.trailing, 10)
@@ -101,7 +101,7 @@ struct ContentLayout: View {
         ZStack{
             HStack{
                 
-                Text("Checagem")
+                Text("Link")
                     .font(.system(size: 20, weight: .light))
                     .foregroundColor(.black)
                     .padding()
@@ -109,7 +109,7 @@ struct ContentLayout: View {
         }
         
         .padding()
-        .frame(width: 170, height: 50)
+        .frame(width: 150, height: 50)
         .background(Color.gray.opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 17))
         .padding(.leading, 10)
@@ -130,7 +130,6 @@ struct TopmenuBar: View {
             Spacer()
 
         }
-        .aspectRatio(3.0, contentMode: .fit)
         .padding()
         .background(Color.gray.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -138,6 +137,23 @@ struct TopmenuBar: View {
     }
 }
 
+struct TabBar: View{
+    @State private var tabSelection = 1
+    var body: some View{
+        TabView(selection: $tabSelection) {
+            Text("tabItem1").tabItem {
+                Text("label1")}.tag(1)
+            Text("tabItem2").tabItem {
+                Text("label2")}.tag(2)
+            Text("tabItem3").tabItem {
+                Text("label3")}.tag(3)
+            Text("tabItem4").tabItem {
+                Text("label4")}.tag(4)
+        }
+        //.overlay(alignment: .bottom)
+        // why this dont work? version maybe
+    }
+}
 
 struct ContentView: View {
     
@@ -159,6 +175,7 @@ struct ContentView: View {
             Titles3()
                 .padding(.bottom,10)
             ContentCard2()
+            TabBar()
             Spacer()
         }
     }

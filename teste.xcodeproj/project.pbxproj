@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A79797C62DA048A5005263F7 /* PersonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79797C52DA048A5005263F7 /* PersonTabBar.swift */; };
+		A79797CA2DA053B0005263F7 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79797C92DA053B0005263F7 /* TabModel.swift */; };
 		A7E867942D806B6500CC7E77 /* testeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E867932D806B6500CC7E77 /* testeApp.swift */; };
 		A7E867962D806B6500CC7E77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E867952D806B6500CC7E77 /* ContentView.swift */; };
 		A7E867982D806B6B00CC7E77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E867972D806B6B00CC7E77 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A79797C52DA048A5005263F7 /* PersonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTabBar.swift; sourceTree = "<group>"; };
+		A79797C92DA053B0005263F7 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		A7E867902D806B6500CC7E77 /* teste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E867932D806B6500CC7E77 /* testeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testeApp.swift; sourceTree = "<group>"; };
 		A7E867952D806B6500CC7E77 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A79797C82DA05387005263F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A79797C92DA053B0005263F7 /* TabModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A7E867872D806B6500CC7E77 = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +110,9 @@
 		A7E867922D806B6500CC7E77 /* teste */ = {
 			isa = PBXGroup;
 			children = (
+				A79797C82DA05387005263F7 /* Models */,
 				A7E867932D806B6500CC7E77 /* testeApp.swift */,
+				A79797C52DA048A5005263F7 /* PersonTabBar.swift */,
 				A7E867952D806B6500CC7E77 /* ContentView.swift */,
 				A7F44B592D81ECBD00E5567E /* dtl.swift */,
 				A7F44B572D81EB0600E5567E /* FuncFileTest.swift */,
@@ -264,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7F44B5A2D81ECBD00E5567E /* dtl.swift in Sources */,
+				A79797C62DA048A5005263F7 /* PersonTabBar.swift in Sources */,
 				A7E867962D806B6500CC7E77 /* ContentView.swift in Sources */,
+				A79797CA2DA053B0005263F7 /* TabModel.swift in Sources */,
 				A7F44B582D81EB0600E5567E /* FuncFileTest.swift in Sources */,
 				A7E867942D806B6500CC7E77 /* testeApp.swift in Sources */,
 			);
