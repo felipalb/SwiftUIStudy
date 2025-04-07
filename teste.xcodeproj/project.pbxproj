@@ -87,6 +87,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A79797CB2DA43E62005263F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A79797C52DA048A5005263F7 /* PersonTabBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A7E867872D806B6500CC7E77 = {
 			isa = PBXGroup;
 			children = (
@@ -110,9 +118,9 @@
 		A7E867922D806B6500CC7E77 /* teste */ = {
 			isa = PBXGroup;
 			children = (
+				A79797CB2DA43E62005263F7 /* Views */,
 				A79797C82DA05387005263F7 /* Models */,
 				A7E867932D806B6500CC7E77 /* testeApp.swift */,
-				A79797C52DA048A5005263F7 /* PersonTabBar.swift */,
 				A7E867952D806B6500CC7E77 /* ContentView.swift */,
 				A7F44B592D81ECBD00E5567E /* dtl.swift */,
 				A7F44B572D81EB0600E5567E /* FuncFileTest.swift */,

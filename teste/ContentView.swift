@@ -147,11 +147,11 @@ struct TabBar: View{
                 Text("label2")}.tag(2)
             Text("tabItem3").tabItem {
                 Text("label3")}.tag(3)
-            Text("tabItem4").tabItem {
-                Text("label4")}.tag(4)
         }
-        //.overlay(alignment: .bottom)
-        // why this dont work? version maybe
+        .overlay(alignment: .bottom){
+            PersonTabBar(tabSelection: $tabSelection)
+            
+        }
     }
 }
 
