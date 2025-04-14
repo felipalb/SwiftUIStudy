@@ -30,7 +30,7 @@ struct GadgetCard: View {
                 .lineLimit(2)
         }
         .padding()
-        .frame(width: 160, height: 180)
+        .frame(width: 215, height: 160)
         .background(gadget.color)
         .cornerRadius(20)
         .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
@@ -54,12 +54,9 @@ struct GadgetCarousel: View {
 
 struct ContentView: View {
     let sampleGadgets = [
-        Gadget(title: "Desempenho", description: "Monitoramento em tempo real", icon: "speedometer", color: .blue),
-        Gadget(title: "Bateria", description: "Nível atual: 78%", icon: "battery.75", color: .green),
-        Gadget(title: "Armazenamento", description: "15.2 GB disponíveis", icon: "externaldrive", color: .orange),
-        Gadget(title: "Segurança", description: "Sistema protegido", icon: "shield", color: .purple),
-        Gadget(title: "Conexões", description: "3 dispositivos conectados", icon: "antenna.radiowaves.left.and.right", color: .red),
-        Gadget(title: "Notificações", description: "5 não lidas", icon: "bell.badge", color: .yellow)
+        Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: .blue),
+        Gadget(title: "Seu progresso", description: "Acompanhe agora sua posição no ranking", icon: "brain.head.profile", color: .green),
+        Gadget(title: "Doe cultura", description: "Participe do programa de doação de livros!", icon: "heart.fill", color: .orange)
     ]
     
     var body: some View {
@@ -68,9 +65,12 @@ struct ContentView: View {
                 Text("Resumo")
                     .font(.system(size: 24, weight: .semibold))
                 Spacer()
-                Image(systemName: "person")
+                Image(systemName: "person.circle")
+                    .font(.system(size:25))
             }
+            .padding()
             .padding(.horizontal)
+            
             
             // Carrossel corrigido
             ScrollView(.horizontal, showsIndicators: false) {
