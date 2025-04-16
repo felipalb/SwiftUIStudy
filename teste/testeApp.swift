@@ -7,11 +7,54 @@
 
 import SwiftUI
 
+struct TitleStructure: View {
+    let title: String  // No default value, must be provided when creating the view
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text(title)
+                    .font(.system(size: 25, weight: .semibold))
+                Spacer()
+            }
+        }
+        .padding()
+        .padding(.horizontal)
+    }
+}
+
+// chamada: TitleStructure(title: "tituloAqui")
+
+struct FakeListStructure: View{
+    let book: [String]
+    
+    var body: some View{
+        //optional
+        //AltZstack()
+        ForEach(book, id: \.self){ books in
+            VStack(spacing: 2){
+                HStack{
+                    Text(books)
+                        .font(.system(size:16, weight: .light))
+                        .padding(.horizontal,4)
+                        .padding(.top, -25)
+                    Spacer()
+                }
+                Divider()
+            }
+            .padding()
+            .padding(.horizontal)
+        }
+    }
+}
+
+// chamada: FakeListStructure(books:["livro1","livro2","livro3])
+
 @main
 struct testeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+                TabBar()
+            }
         }
     }
-}
