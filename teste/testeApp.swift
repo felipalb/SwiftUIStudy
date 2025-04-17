@@ -16,6 +16,10 @@ struct TitleStructure: View {
                 Text(title)
                     .font(.system(size: 25, weight: .semibold))
                 Spacer()
+                Text("Veja todos")
+                    .font(.system(size: 12, weight: .light))
+                    .foregroundColor(.blue)
+                    .padding()
             }
         }
         .padding()

@@ -55,12 +55,14 @@ struct GadgetCarousel: View {
 // explorar
 // troca e doacao
 
+// estrutura para tabbar
+
 struct TabBar: View {
     @State var selectedTab = 0
     var body: some View{
         
         TabView{
-            Text("P1")
+            Color.clear
                 .tabItem{
                     Image(systemName: "house")
                         .font(.system(size:25))
@@ -68,7 +70,7 @@ struct TabBar: View {
                 }
                 .tag(0)
             
-            Text("P2")
+            Color.clear
                 .tabItem{
                     Image(systemName: "globe")
                         .font(.system(size:25))
@@ -76,7 +78,7 @@ struct TabBar: View {
                 }
                 .tag(1)
             
-            Text("P3")
+            Color.clear
                 .tabItem{
                     Image(systemName: "heart.fill")
                         .font(.system(size:25))
@@ -84,7 +86,7 @@ struct TabBar: View {
                 }
                 .tag(2)
             
-            Text("P4")
+            Color.clear
                 .tabItem{
                     Image(systemName: "person.circle")
                         .font(.system(size:25))
@@ -120,28 +122,31 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Resumo")
-                    .font(.system(size: 30, weight: .semibold))
-                Spacer()
-            }
-            .padding()
-            .padding(.horizontal)
-            
-            
-            // Carrossel corrigido
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(sampleGadgets) { gadget in
-                        GadgetCard(gadget: gadget)
-                    }
+        //ScrollView{
+        VStack{
+            ScrollView{
+                HStack {
+                    //ScrollView{
+                    Text("Resumo")
+                        .font(.system(size: 30, weight: .semibold))
+                    Spacer()
                 }
-                .padding(.horizontal)  // Adiciona padding nas laterais
-                .frame(height: 200)    // Altura fixa para o conteúdo
-            }
-            .frame(height: 220)        // Altura fixa para o ScrollView
-            
+                .padding()
+                .padding(.horizontal)
+                
+                
+                // Carrossel corrigido
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(sampleGadgets) { gadget in
+                            GadgetCard(gadget: gadget)
+                        }
+                    }
+                    .padding(.horizontal)  // Adiciona padding nas laterais
+                    .frame(height: 200)    // Altura fixa para o conteúdo
+                }
+                .frame(height: 220)        // Altura fixa para o ScrollView
+            //ScrollView{
                 VStack {
                     HStack {
                         Text("Grupos")
@@ -155,10 +160,14 @@ struct ContentView: View {
                 }
                 .padding()
                 .padding(.horizontal)
+                
+                FakeListStructure(book: ["Shreck", "TVD", "Faz o urro"])
 
-            FakeListStructure(book: ["Shreck", "TVD", "Faz o urro"])
-            //AltZstack()
-            Spacer()
+                //AltZstack()
+//                Spacer()
+                TitleStructure(title: "Comentários")
+                FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
+            }
             TabBar()
             
         }
