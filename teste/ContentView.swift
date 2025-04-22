@@ -1,4 +1,5 @@
 import SwiftUI
+//import Charts
 
 struct Gadget: Identifiable {
     let id = UUID()
@@ -62,7 +63,7 @@ struct TabBar: View {
     var body: some View{
         
         TabView{
-            Color.clear
+            ContentView()
                 .tabItem{
                     Image(systemName: "house")
                         .font(.system(size:25))
@@ -70,7 +71,7 @@ struct TabBar: View {
                 }
                 .tag(0)
             
-            Color.clear
+            Color.red
                 .tabItem{
                     Image(systemName: "globe")
                         .font(.system(size:25))
@@ -114,6 +115,63 @@ struct AltZstack: View{
 }
 
 
+struct SimpleBarChart: View{
+    let data: [BarData]
+    
+    var body: some View {
+        VStack {
+//            // Título (opcional)
+//            Text("Páginas lidas")
+//                .font(.headline)
+//                .padding(.trailing, 220)
+            
+            // Gráfico
+            HStack(alignment: .bottom, spacing: 8) {
+                ForEach(data) { bar in
+                    VStack {
+                        // Barra
+                        Rectangle()
+                            .fill(bar.color)
+                            .frame(height: calculateBarHeight(value: bar.value))
+                        
+                        // Rótulo do valor
+                        Text("\(Int(bar.value))")
+                            .font(.caption)
+                        
+                        // Rótulo da categoria
+                        Text(bar.label)
+                            .font(.caption2)
+                            .frame(width: 60)
+                            .lineLimit(1)
+                    }
+                }
+            }
+            .frame(height: 200)
+            .padding(.horizontal)
+        }
+    }
+    
+    private func calculateBarHeight(value: Double) -> CGFloat {
+        let maxValue = data.map { $0.value }.max() ?? 1
+        return CGFloat(value / maxValue) * 140 // 180 é a altura máxima das barras
+    }
+}
+
+struct BarData: Identifiable {
+    let id = UUID()
+    let label: String
+    let value: Double
+    let color: Color
+}
+
+let sampleData = [
+            BarData(label: "Seg", value: 50, color: .blue),
+            BarData(label: "Ter", value: 80, color: .green),
+            BarData(label: "Qua", value: 30, color: .red),
+            BarData(label: "Qui", value: 60, color: .orange),
+            BarData(label: "Sex", value: 90, color: .purple)
+        ]
+
 struct ContentView: View {
     let sampleGadgets = [
         Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: .blue),
@@ -122,17 +180,18 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        //ScrollView{
         VStack{
             ScrollView{
                 HStack {
-                    //ScrollView{
                     Text("Resumo")
                         .font(.system(size: 30, weight: .semibold))
                     Spacer()
                 }
+//                Spacer()
                 .padding()
                 .padding(.horizontal)
+                
+                Spacer(minLength: -5)
                 
                 
                 // Carrossel corrigido
@@ -146,7 +205,6 @@ struct ContentView: View {
                     .frame(height: 200)    // Altura fixa para o conteúdo
                 }
                 .frame(height: 220)        // Altura fixa para o ScrollView
-            //ScrollView{
                 VStack {
                     HStack {
                         Text("Grupos")
@@ -162,20 +220,29 @@ struct ContentView: View {
                 .padding(.horizontal)
                 
                 FakeListStructure(book: ["Shreck", "TVD", "Faz o urro"])
+                
+                TitleStructure(title: "Seu Ranking", sub:"Ver mais")
+                
+                Spacer(minLength: -40)
 
-                //AltZstack()
-//                Spacer()
-                TitleStructure(title: "Comentários")
+                SimpleBarChart(data: sampleData)
+                    .frame(height: 300)
+                    .padding()
+                
+                TitleStructure(title: "Comentários", sub: "Veja todos")
+
                 FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
+
+                    
             }
-            TabBar()
+//            TabBar()
             
         }
     }
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TabBar()
     }
 }
 

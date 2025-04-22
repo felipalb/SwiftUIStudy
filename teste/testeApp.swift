@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TitleStructure: View {
     let title: String  // No default value, must be provided when creating the view
+    let sub: String
     
     var body: some View {
         VStack {
@@ -16,7 +17,7 @@ struct TitleStructure: View {
                 Text(title)
                     .font(.system(size: 25, weight: .semibold))
                 Spacer()
-                Text("Veja todos")
+                Text(sub)
                     .font(.system(size: 12, weight: .light))
                     .foregroundColor(.blue)
                     .padding()
@@ -27,7 +28,8 @@ struct TitleStructure: View {
     }
 }
 
-// chamada: TitleStructure(title: "tituloAqui")
+
+// chamada: TitleStructure(title: "tituloAqui", sub: "SeuSubAqui")
 
 struct FakeListStructure: View{
     let book: [String]
@@ -54,11 +56,12 @@ struct FakeListStructure: View{
 
 // chamada: FakeListStructure(books:["livro1","livro2","livro3])
 
+
 @main
 struct testeApp: App {
     var body: some Scene {
         WindowGroup {
-                TabBar()
+                ContentView()
             }
         }
     }
